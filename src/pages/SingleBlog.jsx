@@ -7,8 +7,6 @@ import { GlobalStates } from "../context"
 export default function SingleBlog() {
 
     const { author_id, blog_id } = useParams()   
-    
-    const { user } = GlobalStates()
 
     const [ singleblog, setSingleblog ] = useState({})
 

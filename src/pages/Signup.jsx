@@ -93,7 +93,7 @@ export default function Signup() {
                     </button>
                 </div>
                 <div className="font-medium text-sm text-center pt-10">
-                    <p>Already have an Acount ?</p>
+                    <p>Already have an Account ?</p>
                     <p>
                         <Link className="text-blue-700 hover:underline" to="/signin">Login</Link>
                     </p>
