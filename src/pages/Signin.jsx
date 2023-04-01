@@ -2,11 +2,13 @@ import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { GlobalStates } from "../context"
 import { auth } from "../firebaseConfig"
 
 export default function Signin() {
 
     const [ cred, setCred ] = useState({ email: "", password: "" })
+    const { user, email } = GlobalStates()
 
     const navigate = useNavigate()
 
@@ -14,7 +16,7 @@ export default function Signin() {
 
     const signIn = () => {
         signInWithPopup(auth, googleProvider)
-            .then(() => {
+            .then( async () => {
                 navigate("/")
             })
             .catch(err => {
@@ -35,8 +37,9 @@ export default function Signin() {
     }
 
     return (
-        <div id="signin" className="flex items-center justify-center min-h-[calc(100vh-48px)]">
-            <div className="border px-8 py-16 rounded-md space-y-3">
+        <div id="signin" className="flex flex-wrap items-center justify-center min-h-[calc(100vh-52px)]">
+            <img className="rounded-l-md hidden md:block w-[359px]  h-[536.35px]" src="social.jpg" alt="" />
+            <div className="border px-8 py-16 space-y-3 bg-white md:rounded-r-md">
                 <div className="flex items-center justify-center">
                     <img className="w-16 mb-5" src="favicon.png" alt="" />
                 </div>
@@ -74,7 +77,7 @@ export default function Signin() {
                 <div className="flex items-center justify-center">
                     <button onClick={signIn} className="border bg-white hover:bg-slate-50 px-3 py-2 rounded-md w-full flex items-center justify-center" >
                         <img className="w-6" src="glogo.png" alt="" /> 
-                        <span className="text-sm font-medium pl-3">Sign In with Google</span> 
+                        <span className="text-sm font-medium pl-3">Continue with Google</span> 
                     </button>
                 </div>
                 <div className="font-medium text-sm text-center pt-10">

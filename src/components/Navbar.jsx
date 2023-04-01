@@ -1,7 +1,6 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { signOut } from "firebase/auth"
 import { auth } from "../firebaseConfig"
-import { useNavigate } from "react-router-dom"
 import { GlobalStates } from "../context"
 
 export default function Navbar() {
@@ -18,19 +17,24 @@ export default function Navbar() {
     return (
         <div id="Navbar" className="font-medium flex bg-slate-900 text-white items-center justify-between px-8 p-3">
 
+            <div className="flex items-center">
+                <img className="w-8" src="/favicon.png" />
+                <h1 className="font-medium text-2xl px-1 text-orange-400">uddy</h1>
+            </div>
+
             <div className="space-x-4 flex items-center">
                 <NavLink to="/">
                     <i className="hover:bg-white hover:text-gray-800 border p-2 rounded-md fa-solid fa-house"></i>
                 </NavLink>
-                <NavLink to="/myblogs">
-                    <i className="hover:bg-white hover:text-gray-800 border p-2 rounded-md fa-solid fa-book"></i>
+                <NavLink to="/upload">
+                    <i className="hover:bg-white hover:text-gray-800 border p-2 rounded-md fa-solid fa-upload"></i>
+                </NavLink>
+                <NavLink to={`/user/${user.email.split("@")[0]}`}>
+                    <i className="hover:bg-white hover:text-gray-800 border p-2 rounded-md fa-solid fa-user"></i>
                 </NavLink>
             </div>
 
-            <img className="w-10" src="favicon.png" alt="" />
-
             <div className="flex items-center">
-                <img className="rounded-full w-8" src={user.photoURL} alt="" />
                 <button className="pl-3" onClick={GoogleSignOut}>
                     <i className="hover:bg-white hover:text-gray-800 border p-2 rounded-md fa-solid fa-door-open"></i>
                 </button>

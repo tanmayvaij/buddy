@@ -1,1 +1,1 @@
-# a-simple-blogger
+# buddy

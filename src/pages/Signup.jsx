@@ -37,8 +37,8 @@ export default function Signup() {
     }
 
     return (
-        <div id="signup" className="flex items-center justify-center min-h-[calc(100vh-48px)]">
-            <div className="border px-8 py-16 rounded-md space-y-3">
+        <div id="signup" className="flex flex-wrap items-center justify-center min-h-[calc(100vh-52px)]">
+            <div className="border px-8 py-16 space-y-3 bg-white rounded-l-md">
                 <div className="flex items-center justify-center">
                     <img className="w-16 mb-5" src="favicon.png" alt="" />
                 </div>
@@ -89,16 +89,17 @@ export default function Signup() {
                         className="border bg-white hover:bg-slate-50 px-3 py-2 rounded-md w-full flex items-center justify-center" 
                     >
                         <img className="w-6" src="glogo.png" alt="" /> 
-                        <span className="text-sm font-medium pl-3">Sign Up with Google</span> 
+                        <span className="text-sm font-medium pl-3">Continue with Google</span> 
                     </button>
                 </div>
                 <div className="font-medium text-sm text-center pt-10">
                     <p>Already have an Account ?</p>
                     <p>
-                        <Link className="text-blue-700 hover:underline" to="/signin">Login</Link>
+                        <Link className="text-blue-700 hover:underline" to="/">Login</Link>
                     </p>
                 </div>
             </div>
+            <img className="hidden md:block w-[360px] h-[588.35px] rounded-r-md" src="social2.jpg" alt="" />
         </div>
     )
 }

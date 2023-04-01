@@ -6,19 +6,28 @@
 
 *{
     font-family: 'Kanit', sans-serif;
-    transition: 0.2s linear;
-}
-
-.blogcard {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.blogcard:hover {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: 0.1s linear;
 }
 
 #Intro {
     background-image: url("https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=707&q=80");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+#signin, #signup {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../public/crowd.jpg"); 
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+body {
+    background-image: linear-gradient(150deg, #fc7480 , #fbcb89);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+#AppUsers::-webkit-scrollbar {
+    display: none;
 }

@@ -1,22 +1,29 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom"
+
 import AuthBar from "./components/AuthBar"
 import Navbar from "./components/Navbar"
+
 import { GlobalStates } from "./context"
-import Blogs from "./pages/Blogs"
-import Intro from "./pages/Intro"
-import MyBlogs from "./pages/MyBlogs"
+
+import Posts from "./pages/Posts"
+import Profile from "./pages/Profile"
+import PostUploader from "./pages/PostUploader"
+import SinglePost from "./pages/SinglePost"
+
 import Signin from "./pages/Signin"
 import Signup from "./pages/Signup"
-import SingleBlog from "./pages/SingleBlog"
+
 
 function RoutesWithUser() {
     return (
         <>
         <Navbar/>
         <Routes>
-            <Route exact path="/" element={ <Blogs/> } />
-            <Route exact path="/myblogs" element={ <MyBlogs/> } />
-            <Route exact path="/blog/:author_id/:blog_id" element={ <SingleBlog/> } />
+            <Route exact path="/" element={ <Posts/> } />
+            <Route exact path="/upload" element={ <PostUploader/> } />
+            <Route exact path="/user/:email" element={ <Profile/> } />
+            <Route exact path="/post/:post_id" element={ <SinglePost/> } />
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         </>
     )
@@ -27,9 +34,9 @@ function RoutesWithoutUser() {
         <>
         <AuthBar/>
         <Routes>
-            <Route exact path="/" element={ <Intro/> } />
-            <Route exact path="/signin" element={ <Signin/> } />
+            <Route exact path="/" element={ <Signin/> } />
             <Route exact path="/signup" element={ <Signup/> } />
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         </>
     )
@@ -44,4 +51,5 @@ export default function App() {
             { user? <RoutesWithUser/> : <RoutesWithoutUser/> }           
         </BrowserRouter>
     )
+    
 }
