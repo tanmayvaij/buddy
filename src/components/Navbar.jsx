@@ -17,10 +17,10 @@ export default function Navbar() {
     return (
         <div id="Navbar" className="font-medium flex bg-slate-900 text-white items-center justify-between px-8 p-3">
 
-            <div className="flex items-center">
+            <NavLink to="/" className="flex items-center">
                 <img className="w-8" src="/favicon.png" />
                 <h1 className="font-medium text-2xl px-1 text-orange-400">uddy</h1>
-            </div>
+            </NavLink>
 
             <div className="space-x-4 flex items-center">
                 <NavLink to="/">

@@ -8,7 +8,7 @@ export default function PostCard(props)  {
                 <img className="rounded-full w-8" src={props?.user_photo} alt="" />
                 <p className="text-sm">{props?.email}</p>
             </div>
-            <img className="w-[25rem] h-[25rem]" src={props?.image ?? "placeholder.webp"} alt="" />
+            <img className="w-[20rem] h-[20rem] sm:w-[27rem] sm:h-[27rem]" src={props?.image ?? "placeholder.webp"} alt="" />
         </Link>
     ) 
 }
