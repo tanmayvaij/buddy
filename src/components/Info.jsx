@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { GlobalStates } from "../context"
 
 export default function Info() {
 
@@ -8,6 +7,7 @@ export default function Info() {
 
     const [ profileDetails, setProfileDetails ] = useState()
 
+    // fetching user details from realtime database
     const getProfileDetails = async () => {
 
         const res = await fetch(`https://iron-envelope-379712-default-rtdb.firebaseio.com/users/${email}.json`, {

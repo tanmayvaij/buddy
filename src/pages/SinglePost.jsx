@@ -16,12 +16,14 @@ export default function SinglePost() {
 
     const [ allComments, setAllComments ] = useState([])
 
+    // Query<DocumentData> object for fetching a single post with given id
     const q = query(collection(db, "posts"), where("id", "==", post_id))
 
     const [singlePost, setSinglePost] = useState({})
 
     useEffect(() => {
 
+        // fetching all comments from realtime database in realtime
         const dbRef = ref(docDb, `post_comments/${post_id}`)
         onValue(dbRef, (snapshot) => {
 
@@ -35,6 +37,7 @@ export default function SinglePost() {
 
         })
 
+        // fetching post from firestore databse
         getDocs(q)
         .then(postDoc => {
             postDoc.forEach(post => setSinglePost({ ...post.data(), docID: post.id }))

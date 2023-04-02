@@ -3,13 +3,16 @@ import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom"
 import AuthBar from "./components/AuthBar"
 import Navbar from "./components/Navbar"
 
+// super global variables
 import { GlobalStates } from "./context"
 
+// pages to show when user is authenticated
 import Posts from "./pages/Posts"
 import Profile from "./pages/Profile"
 import PostUploader from "./pages/PostUploader"
 import SinglePost from "./pages/SinglePost"
 
+// pages to show when user is not authenticated
 import Signin from "./pages/Signin"
 import Signup from "./pages/Signup"
 

@@ -12,6 +12,7 @@ export default function CommentInput({ post_id }) {
 
     const post_comment_id = `${Date.now()}-${uuid4()}`
 
+    // function for commenting on a post
     const Comment = () => {
 
         set(ref(docDb, `post_comments/${post_id}/${post_comment_id}`), {
@@ -20,8 +21,6 @@ export default function CommentInput({ post_id }) {
         })
 
         setUserComment("")
-
-
 
     }
 

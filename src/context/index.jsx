@@ -10,6 +10,7 @@ export default function Context({ children }) {
     const [ user, setUser ] = useState(null)
     const [ appUsers, setAppUsers ] = useState([])
 
+    // function for fetching all app users from realtime database in real time
     const getAppUsers = async () => {
 
         const dbRef = ref(docDb, "users")
@@ -22,12 +23,14 @@ export default function Context({ children }) {
 
     useEffect(() => {
 
+        // checking if user exists and then performing the following tasks
         onAuthStateChanged(auth, user => {
 
             if (user) {
                 
                 setUser(user) 
 
+                // storing user info in reatime database
                 fetch(`https://iron-envelope-379712-default-rtdb.firebaseio.com/users/${user.email.split("@")[0]}.json`, {
                     method: "PUT",
                     headers: {

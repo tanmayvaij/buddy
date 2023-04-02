@@ -20,29 +20,38 @@ export default function PostUploader() {
     const [previewImg, setPreviewImg] = useState("placeholder.webp")
     const [uploadClicked, setUploadClicked] = useState(false)
 
+    // function for previwing the iamge
     const addImageForPreview = (e) => {
         setFile(e.target.files[0])
         setPreviewImg(URL.createObjectURL(e.target.files[0]))
     }
 
+    // uploading post
     const handlePostUpload = () => {
 
         setUploadClicked(true)
 
+        // generating unique id for each post
         const id = `${Date.now()}-${uuid4()}`
 
+        // image should be compulsory included
         if (!file) alert("Image Required!")
 
+        // reference for the firebase storage
         const storageRef = fireStorage.ref(storage, `/images/${file.name}`)
+
+        // uploading image file to firebase storage
         const uploadTask = fireStorage.uploadBytesResumable(storageRef, file)
 
+        // listener for uploading task
         uploadTask.on(
             "state_changed",
-            () => { },
+            () => { }, 
             (err) => console.log(err),
             () => {
                 fireStorage.getDownloadURL(uploadTask.snapshot.ref).then((image) => {
 
+                    // adding data to firestore database
                     addDoc(collection(db, "posts"), { 
                         image, 
                         comment, 
@@ -64,6 +73,7 @@ export default function PostUploader() {
 
     }
 
+    // discarding post data
     const handlePostDiscard = () => {
         setFile()
         setPreviewImg("placeholder.webp")
@@ -76,6 +86,7 @@ export default function PostUploader() {
             { uploadClicked && <Loader/> }
 
             <div className="bg-white rounded-md my-10 space-y-2 border flex items-center justify-center flex-col p-10">
+                
                 <div>
                     <input
                         className="border hover:cursor-pointer file:bg-blue-600 file:text-white file:border-none file:rounded-md file:text-sm file:p-2 px-3 w-80 py-1 rounded-md border-gray-400"
@@ -86,7 +97,9 @@ export default function PostUploader() {
                         id="img"
                     />
                 </div>
+
                 <img className="w-80 h-52 rounded-md" src={previewImg} alt="" />
+
                 <div>
                     <textarea
                         className="resize-none border focus:outline-indigo-500 placeholder border-gray-400 rounded placeholder:text-gray-500 w-80 pl-3"
@@ -99,6 +112,7 @@ export default function PostUploader() {
                     >
                     </textarea>
                 </div>
+
                 <div className="space-x-2">
                     <button 
                         className="bg-blue-700 w-10 hover:bg-blue-600 text-white p-2 rounded-md text-sm font-medium" 
@@ -113,6 +127,7 @@ export default function PostUploader() {
                         <i className="fa-solid fa-trash"></i>
                     </button>
                 </div>
+
             </div>
         </div>
     )

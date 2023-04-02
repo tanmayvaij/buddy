@@ -9,12 +9,14 @@ export default function Profile() {
 
     const { email } = useParams()
 
+    // Query<DocumentData> object for fetching posts that belong to the respective users
     const q = query(collection(db, "posts"), where("email", "==", email ), orderBy("id", "desc"))
 
     const [ posts, setPosts ] = useState([])
     
     useEffect(() => {
 
+        // fetching data in realtime
         onSnapshot(q, (res) => {
             setPosts(res.docs.map(post => post.data()))
         })
@@ -35,6 +37,7 @@ export default function Profile() {
             </div>
 
             {
+                // shown when no posts found in database
                 (posts.length == 0) ? (
                     <div className="flex flex-col min-h-[calc(100vh-57.6px)] items-center justify-center">
                         <i className="text-3xl fa-solid fa-face-sad-tear"></i>

@@ -6,12 +6,17 @@ import AppUsers from "../components/AppUsers"
 
 export default function Posts() {
 
+    /* 
+        Query<DocumentData> object for fetching all the posts in descending order
+        according the their respective ids.
+    */
     const q = query(collection(db, "posts"), orderBy("id", "desc"))
 
     const [ posts, setPosts ] = useState([])
 
     useEffect(() => {
 
+        // fetching posts in real time (firestore)
         onSnapshot(q, (res) => {
             setPosts(res.docs.map(post => post.data()))
         })
@@ -24,6 +29,7 @@ export default function Posts() {
             <AppUsers/>
 
             {
+                // shown when no posts found in database
                 (posts.length == 0) ? (
                     <div className="flex flex-col min-h-[calc(100vh-57.6px)] items-center justify-center">
                         <i className="text-3xl fa-solid fa-face-sad-tear"></i>
@@ -35,6 +41,7 @@ export default function Posts() {
             }
 
             {
+                // rendering all the posts
                 posts.map((val, id) => {
                     return <PostCard key={id} { ...val } />
                 })

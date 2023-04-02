@@ -6,10 +6,10 @@ export default function DeleteBar({ doc_id }) {
 
     const navigate = useNavigate()
 
+    // function for deleting post, only available for account owners
     const deletePost = () => {
 
         const docRef = doc(db, "posts", doc_id)
-
         deleteDoc(docRef)
         .then(() => navigate(-1))
         .catch(err => {

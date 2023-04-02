@@ -1,14 +1,11 @@
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
 import { useState } from "react"
-import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { GlobalStates } from "../context"
+import { Link, useNavigate } from "react-router-dom"
 import { auth } from "../firebaseConfig"
 
 export default function Signin() {
 
-    const [ cred, setCred ] = useState({ email: "", password: "" })
-    const { user, email } = GlobalStates()
+    const [cred, setCred] = useState({ email: "", password: "" })
 
     const navigate = useNavigate()
 
@@ -16,12 +13,12 @@ export default function Signin() {
 
     const signIn = () => {
         signInWithPopup(auth, googleProvider)
-            .then( async () => {
-                navigate("/")
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        .then( async () => {
+            navigate("/")
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     const CustomEmailSignIn = () => {
