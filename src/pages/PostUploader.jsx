@@ -29,6 +29,8 @@ export default function PostUploader() {
     // uploading post
     const handlePostUpload = () => {
 
+        window.scrollTo(0, 0)
+
         setUploadClicked(true)
 
         // generating unique id for each post

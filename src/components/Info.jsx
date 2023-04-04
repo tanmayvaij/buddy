@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { GlobalStates } from "../context"
+import MessageButton from "./MessageButton"
 
 export default function Info() {
 
     const { email } = useParams()
+
+    const { user } = GlobalStates()
 
     const [ profileDetails, setProfileDetails ] = useState()
 
@@ -25,12 +29,18 @@ export default function Info() {
 
     useEffect(() => {
         getProfileDetails()
-    }, [])
+    }, [email])
 
     return (
-        <div id="Info" className="flex items-center space-x-4">
-            <img className="rounded-full border-4  m-5 w-40" src={profileDetails?.photo ?? "/person.png"} alt="" />
-            <h2 className="text-xl">{email}</h2>
+        <div id="Info" className="border w-full mb-3 flex-col flex items-center justify-center space-x-4">
+
+            <div className="flex items-center justify-center">
+                <img className="rounded-full border-4  m-5 w-40" src={profileDetails?.photo ?? "/person.png"} alt="" />
+                <h2 className="text-xl">{email}</h2>
+            </div>
+
+            { (user.email.split("@")[0] != email) && <MessageButton userEmail={email} /> }
+
         </div>
     )
 }

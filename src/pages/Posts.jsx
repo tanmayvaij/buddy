@@ -32,8 +32,8 @@ export default function Posts() {
                 // shown when no posts found in database
                 (posts.length == 0) ? (
                     <div className="flex flex-col min-h-[calc(100vh-57.6px)] items-center justify-center">
-                        <i className="text-3xl fa-solid fa-face-sad-tear"></i>
-                        <h2>Sorry! No Posts Found</h2>
+                        <i className="border-2 text-4xl p-10 border-gray-800 rounded-full fa-solid fa-camera"></i>
+                        <h2 className="font-bold text-2xl m-2">No Posts Yet !</h2>
                     </div>
                 ) : (
                     ""

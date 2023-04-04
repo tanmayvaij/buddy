@@ -9,7 +9,7 @@ export default function Signup() {
 
     const googleProvider = new GoogleAuthProvider()
 
-    const [ cred, setCred ] = useState({ email: "", password: "", cpassword: "" })
+    const [cred, setCred] = useState({ email: "", password: "", cpassword: "" })
 
     const signUp = () => {
         signInWithPopup(auth, googleProvider)
@@ -98,7 +98,10 @@ export default function Signup() {
                     </p>
                 </div>
             </div>
-            <img className="hidden md:block w-[360px] h-[588.35px] rounded-r-md" src="social2.jpg" alt="" />
+            <img 
+                className="hidden md:block w-[360px] h-[588.35px] rounded-r-md" 
+                src="https://images.pexels.com/photos/3184435/pexels-photo-3184435.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+            />
         </div>
     )
 }

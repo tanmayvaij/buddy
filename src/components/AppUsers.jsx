@@ -12,7 +12,7 @@ export default function AppUsers() {
                 appUsers.map((val) => {
                     return (
                         <div key={val?.uid} className="mx-3 text-center">
-                            <Link className="border-4 p-[1px] inline-block rounded-full bg-white hover:border-amber-500 border-orange-300" key={val.uid} to={`/user/${val.email}`}>
+                            <Link className="border-4 p-[1px] inline-block rounded-full bg-white hover:border-pink-500 border-pink-400" key={val.uid} to={`/user/${val.email}`}>
                                 <img className="w-12 rounded-full" src={ val?.photo ?? "/person.png" } alt="" />
                             </Link>
                             <p className="text-xs">{val?.email}</p>

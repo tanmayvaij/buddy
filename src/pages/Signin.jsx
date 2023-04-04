@@ -35,10 +35,13 @@ export default function Signin() {
 
     return (
         <div id="signin" className="flex flex-wrap items-center justify-center min-h-[calc(100vh-52px)]">
-            <img className="rounded-l-md hidden md:block w-[359px]  h-[536.35px]" src="social.jpg" alt="" />
+            <img 
+                className="rounded-l-md hidden md:block w-[359px]  h-[536.35px]" 
+                src="https://images.pexels.com/photos/5081918/pexels-photo-5081918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+            />
             <div className="border px-8 py-16 space-y-3 bg-white md:rounded-r-md">
                 <div className="flex items-center justify-center">
-                    <img className="w-16 mb-5" src="favicon.png" alt="" />
+                    <img className="w-16 mb-5" src="favicon.png" />
                 </div>
                 <div>
                     <input 

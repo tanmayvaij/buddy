@@ -21,6 +21,8 @@ export default function SinglePost() {
 
     const [singlePost, setSinglePost] = useState({})
 
+    window.scrollTo(0, 0)
+
     useEffect(() => {
 
         // fetching all comments from realtime database in realtime
@@ -52,8 +54,8 @@ export default function SinglePost() {
         <div id="singleblog" className="items-center min-h-[calc(100vh-57.6px)] justify-center flex flex-col">
 
             <div className="bg-white flex items-center justify-center flex-col pb-4 w-full mb-4 border-b-2 border-gray-200">
-                <img className="rounded-md p-3 h-96 w-[600px]" src={singlePost?.image ?? "/placeholder.webp"} alt="" />
-                <p className="p-3 mb-8 max-w-[800px]">{singlePost?.comment}</p>
+                <img className="rounded-lg m-3 h-96 w-[600px]" src={singlePost?.image ?? "/placeholder.webp"} alt="" />
+                <p className="p-3  max-w-[800px]">{singlePost?.comment}</p>
             </div>
 
             <h2 className="text-3xl underline m-3">Comments</h2>

@@ -16,18 +16,25 @@
 }
 
 #signin, #signup {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../public/crowd.jpg"); 
+    /* background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("../public/crowd.jpg"); 
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 }
 
 body {
-    background-image: linear-gradient(150deg, #fc7480 , #fbcb89);
+    background-color: rgb(249, 243, 240);
     background-size: 100% 100%;
-    background-attachment: fixed;
+    background-attachment: fixed; 
 }
 
-#AppUsers::-webkit-scrollbar {
-    display: none;
+::-webkit-scrollbar {
+    background: white;
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(90, 119, 235);
+    border-radius: 10px;
 }
