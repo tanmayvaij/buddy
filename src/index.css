@@ -23,7 +23,8 @@
 }
 
 body {
-    background-color: rgb(249, 243, 240);
+    background-color: rgb(218, 204, 250);
+    /* background-image: url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ymx1ZSUyMGFuZCUyMHB1cnBsZSUyMGdyYWRpZW50fGVufDB8fDB8fA%3D%3D&w=1000&q=80"); */
     background-size: 100% 100%;
     background-attachment: fixed; 
 }

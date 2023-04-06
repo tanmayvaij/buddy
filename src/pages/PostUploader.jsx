@@ -87,11 +87,11 @@ export default function PostUploader() {
 
             { uploadClicked && <Loader/> }
 
-            <div className="bg-white rounded-md my-10 space-y-2 border flex items-center justify-center flex-col p-10">
+            <div className="bg-white rounded-md my-10 space-y-2 border flex items-center justify-center flex-col p-6">
                 
                 <div>
                     <input
-                        className="border hover:cursor-pointer file:bg-blue-600 file:text-white file:border-none file:rounded-md file:text-sm file:p-2 px-3 w-80 py-1 rounded-md border-gray-400"
+                        className="mb-3 border hover:cursor-pointer file:bg-blue-600 file:text-white file:border-none file:rounded-md file:text-sm file:p-2 px-3 w-80 py-1 rounded-md border-gray-400"
                         onChange={(e) => addImageForPreview(e)}
                         type="file"
                         name="image"
@@ -100,11 +100,11 @@ export default function PostUploader() {
                     />
                 </div>
 
-                <img className="w-80 h-52 rounded-md" src={previewImg} alt="" />
+                <img className="w-80 h-48 rounded-md" src={previewImg} alt="" />
 
                 <div>
                     <textarea
-                        className="resize-none border focus:outline-indigo-500 placeholder border-gray-400 rounded placeholder:text-gray-500 w-80 pl-3"
+                        className="mt-3 resize-none border focus:outline-indigo-500 placeholder border-gray-400 rounded placeholder:text-gray-500 w-80 pl-3"
                         onChange={(e) => setComment(e.target.value)}
                         value={comment}
                         placeholder="Write your Comment here"

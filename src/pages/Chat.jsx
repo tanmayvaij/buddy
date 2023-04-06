@@ -62,17 +62,19 @@ export default function Chat() {
     const sendMessage = () => {
         set(ref(docDb, `chats/${chatid}/${msg_id}`), { email, msg })
         setMsg("")
+        const chatsection = document.querySelector("#chatsection")
+        chatsection.scrollTop = chatsection.scrollHeight
     }
 
     return (
-        <div id="chat" className="border min-h-[calc(100vh-57.3px)]">
+        <div id="chat" className=" min-h-[calc(100vh-57.3px)]">
 
-            <div className="flex border p-2 items-center">
+            <div className="flex p-2 items-center justify-center text-white bg-gray-900">
                 <img className="w-10 rounded-full " src={receiverData.photo} alt="" />
                 <span className="text-sm pl-1">{receiverData.email}</span>
             </div>
 
-            <div id="chatsection" className="min-h-[calc(100vh-156.5px)]">
+            <div id="chatsection" className="overflow-y-scroll h-[calc(100vh-156.5px)]">
                 {
                     chats.map((chat, id) => {
                         return (

@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { onAuthStateChanged } from "firebase/auth"
-import { auth, docDb } from "../firebaseConfig"
+import { auth, db, docDb } from "../firebaseConfig"
 import { onValue, ref } from "firebase/database"
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 
 const context = createContext()
 
@@ -9,6 +10,7 @@ export default function Context({ children }) {
 
     const [ user, setUser ] = useState(null)
     const [ appUsers, setAppUsers ] = useState([])
+    const [ posts, setPosts ] = useState([])
 
     // function for fetching all app users from realtime database in real time
     const getAppUsers = async () => {
@@ -41,6 +43,12 @@ export default function Context({ children }) {
 
                 getAppUsers()
 
+                // fetching posts in real time (firestore)
+                const q = query(collection(db, "posts"), orderBy("id", "desc"))
+                onSnapshot(q, (res) => {
+                    setPosts(res.docs.map(post => post.data()))
+                })
+
             } 
 
             else setUser(null)
@@ -50,7 +58,7 @@ export default function Context({ children }) {
     }, [])
 
     return (
-        <context.Provider value={{ user, appUsers }}>
+        <context.Provider value={{ user, appUsers, posts }}>
             { children }
         </context.Provider>
     )

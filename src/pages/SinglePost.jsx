@@ -53,7 +53,7 @@ export default function SinglePost() {
     return (
         <div id="singleblog" className="items-center min-h-[calc(100vh-57.6px)] justify-center flex flex-col">
 
-            <div className="bg-white flex items-center justify-center flex-col pb-4 w-full mb-4 border-b-2 border-gray-200">
+            <div className="bg flex items-center justify-center flex-col pb-4 w-full mb-4 border-b-2 border-gray-200">
                 <img className="rounded-lg m-3 h-96 w-[600px]" src={singlePost?.image ?? "/placeholder.webp"} alt="" />
                 <p className="p-3  max-w-[800px]">{singlePost?.comment}</p>
             </div>

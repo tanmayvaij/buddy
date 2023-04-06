@@ -1,30 +1,13 @@
-import { useEffect, useState } from "react"
-import { db } from "../firebaseConfig"
 import PostCard from "../components/PostCard"
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore"
 import AppUsers from "../components/AppUsers"
+import { GlobalStates } from "../context"
 
 export default function Posts() {
 
-    /* 
-        Query<DocumentData> object for fetching all the posts in descending order
-        according the their respective ids.
-    */
-    const q = query(collection(db, "posts"), orderBy("id", "desc"))
-
-    const [ posts, setPosts ] = useState([])
-
-    useEffect(() => {
-
-        // fetching posts in real time (firestore)
-        onSnapshot(q, (res) => {
-            setPosts(res.docs.map(post => post.data()))
-        })
-
-    }, [])
+    const { posts } = GlobalStates()
 
     return (
-        <div id="posts" className="flex flex-col items-center justify-center">
+        <div id="posts" className="flex flex-wrap items-center justify-center">
 
             <AppUsers/>
 

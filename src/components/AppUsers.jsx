@@ -6,7 +6,7 @@ export default function AppUsers() {
     const { appUsers } = GlobalStates()
 
     return (
-        <div id="AppUsers" className="overflow-x-scroll w-full text-white flex p-2 bg-gray-900 items-center ">
+        <div id="AppUsers" className="mb-5 overflow-x-scroll w-full text-white flex p-2 bg-gray-900 items-center ">
 
             {
                 appUsers.map((val) => {
