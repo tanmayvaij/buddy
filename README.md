@@ -6,10 +6,9 @@
 
 <br/>
 
-<img src="./public/ss1.png" />
-<img src="./public/ss2.png" />
-<img src="./public/ss3.png" />
-<img src="./public/ss4.png" />
-<img src="./public/ss5.png" />
-<img src="./public/ss6.png" />
-
+![Alt text](/public/ss1.png)
+![Alt text](/public/ss2.png)
+![Alt text](/public/ss3.png)
+![Alt text](/public/ss4.png)
+![Alt text](/public/ss5.png)
+![Alt text](/public/ss6.png)
