@@ -32,7 +32,7 @@ export default function Info() {
     }, [email])
 
     return (
-        <div id="Info" className=" bg-orange-200  w-full mb-3 flex-col flex items-center justify-center space-x-4">
+        <div id="Info" className="shadow-md w-full mb-10 flex-col flex items-center justify-center space-x-4">
 
             <div className="flex items-center justify-center">
                 <img className="rounded-full bg-white border-4  m-5 w-40" src={profileDetails?.photo ?? "/person.png"} alt="" />

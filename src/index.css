@@ -16,15 +16,15 @@
 }
 
 body {
-    background-color: rgb(218, 204, 250); 
+    background-color: hsl(0, 0%, 100%); 
     background-size: 100% 100%;
     background-attachment: fixed; 
 }
 
 ::-webkit-scrollbar {
     background: white;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
