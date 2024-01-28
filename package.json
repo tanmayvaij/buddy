@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "react-scripts build && firebase deploy"
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",
