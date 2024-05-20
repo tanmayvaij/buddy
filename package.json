@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "start": "http-server ./build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "firebase": "^9.18.0",
+    "http-server": "^14.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
