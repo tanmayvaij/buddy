@@ -2,7 +2,7 @@
 
 # Buddy ( Social Media Application )
 
-[View Live Project](https://iron-envelope-379712.web.app) 
+[View Live Project Here](https://iron-envelope-379712.web.app) 
 
 ## A Simple Social media application having common functionalities such as posting, commenting, personal chats, DMs and profile viewing
 
